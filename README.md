@@ -14,8 +14,9 @@ Structured QA test suites for Web3 applications covering wallet integrations, NF
 | 02 | [WalletConnect Matrix](02-walletconnect-matrix.md) | Multi-wallet, multi-platform, session management | 15 |
 | 03 | [NFT Test Cases](03-nft-test-cases.md) | Mint, transfer, burn, metadata, marketplace | 18 |
 | 04 | [On-chain/Off-chain Sync](04-onchain-offchain-sync.md) | Event listeners, data consistency, failure recovery | 12 |
+| 05 | [Cross-Chain Bridge](05-bridge-crosschain.md) | L1↔L2 bridging, deposit/withdraw, status tracking, failure recovery | 15 |
 
-**Total: 65 test cases** across 4 core Web3 testing areas.
+**Total: 80 test cases** across 5 core Web3 testing areas.
 
 ## About
 
