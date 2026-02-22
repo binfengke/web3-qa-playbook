@@ -1,6 +1,6 @@
 # MetaMask Wallet Testing Checklist
 
-20 test scenarios covering wallet connection, transaction signing, network management, account handling, and edge cases for Ethereum and Polygon networks.
+23 test scenarios covering wallet connection, transaction signing, network management, account handling, edge cases, and mobile browser flows for Ethereum and Polygon networks.
 
 ## A. Connection
 
@@ -46,3 +46,11 @@
 | MM-18 | Transaction pending for extended time | Wallet connected, network congested or gas price set very low | 1. Submit transaction with low gas price 2. Wait 5+ minutes with no confirmation | dApp shows pending state with helpful info (e.g., "Transaction is processing on the blockchain..."). Provides option to speed up (resubmit with higher gas) or link to block explorer | Medium | Both |
 | MM-19 | Browser refresh during pending transaction | Transaction submitted but not yet confirmed | 1. Submit a transaction 2. Immediately refresh the browser page 3. Observe dApp state after reload | dApp recovers pending transaction state. Shows transaction as pending or checks on-chain status. Does not allow duplicate submission | High | Both |
 | MM-20 | Outdated MetaMask version | MetaMask version significantly behind latest release | 1. Install an older version of MetaMask 2. Connect to dApp 3. Attempt a transaction | dApp functions correctly or shows a version warning. No silent failures due to deprecated API calls (e.g., `ethereum.enable()` vs `eth_requestAccounts`) | Low | Both |
+
+## F. Mobile Browser (MetaMask App)
+
+| ID | Scenario | Preconditions | Steps | Expected Result | Priority | Chain |
+|----|----------|---------------|-------|-----------------|----------|-------|
+| MM-21 | Open dApp in MetaMask mobile in-app browser and connect wallet | MetaMask mobile app installed, test account imported | 1. Open MetaMask mobile app 2. Open in-app browser and navigate to dApp URL 3. Tap "Connect Wallet" | Wallet connection succeeds without extension flow. dApp displays connected address and correct chain in mobile view | High | Both |
+| MM-22 | Return to dApp after app switch during pending signature | Transaction/signature request opened in MetaMask mobile browser | 1. Initiate transaction 2. Background MetaMask app or switch to another app 3. Return and confirm/reject request | Request state is preserved after returning. Confirm/reject action is processed once with no duplicate submission or frozen UI | Medium | Both |
+| MM-23 | Mobile deep link to block explorer after transaction confirmation | Transaction confirmed in MetaMask mobile browser | 1. Complete transaction 2. Tap transaction hash/explorer link in dApp | Explorer opens correctly on mobile (Etherscan/PolygonScan). Transaction hash matches the submitted transaction | Medium | Both |
